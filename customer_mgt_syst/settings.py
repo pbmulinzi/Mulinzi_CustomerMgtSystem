@@ -119,7 +119,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-MEDIA_URL = '/images/'
+MEDIA_URL = '/images/' #linking the images in my static files to the settings in the project - this one -
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
