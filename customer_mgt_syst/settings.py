@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 import os                         #...I've just added this!!!
 from pathlib import Path
+#import dj_database_url  #because i'm deploying this project on render
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -75,12 +76,25 @@ WSGI_APPLICATION = 'customer_mgt_syst.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+
+#COMMENTING THE ORIGINAL DATABASE STRUCTURE AND REPLACING IT WITH POSTGRESQL (FROM SQLITE DATABASES.)
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+
+#For use after setting up my own local PostgreSQL Database
+#BELOW IS THE REPLACEMENT FOR THE DATABASES ABOVE, SINCE I'M DEPLOYING ON RENDER WHICH WORKS WITH PostgreSQL, not SQLite!
+#DATABASES = {
+ #   'default': dj_database_url.config(
+  #      #supposed to place a link to my local database's connection string below; "...HERE..."
+   #     default = #'postgresql://"...HERE..."'
+    #    conn_max_age = #some figure...will resolve later
+    #)
+#}
 
 
 # Password validation
